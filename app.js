@@ -13,6 +13,11 @@ searchUser.addEventListener('keyup', (e) => {
       } else {
         ui.showProfile(data.profile);
         ui.showRepos(data.repos);
+
+        github.getContributions(userText).then((contributions) => {
+          // console.log(contributions);
+          ui.showContributions(contributions);
+        });
       }
     });
   } else {
